@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chest X-ray Disease Detection</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #243047;
+        }
+        header {
+            background: #142d4e;
+            color: white;
+            padding: 55px 20px;
+            text-align: center;
+        }
+        header h1 { font-size: 36px; margin-bottom: 12px; }
+        header p { color: #d5e3f5; font-size: 17px; }
+        main { max-width: 1000px; margin: 35px auto; padding: 0 20px; }
+        section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 22px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px #142d4e12;
+        }
+        h2 { color: #174a78; }
+        .labels {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .labels span {
+            background: #e8f1fa;
+            padding: 10px 14px;
+            border-radius: 20px;
+        }
+        a {
+            color: #1766a6;
+            font-weight: bold;
+        }
+        .notice {
+            background: #fff5df;
+            padding: 15px;
+            border-left: 4px solid #e6a52e;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #142d4e;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>AI Chest X-ray Disease Detection</h1>
+    <p>Multi-Label Chest X-ray Classification Using Deep Learning</p>
+    <p>Powered by DenseNet121</p>
+</header>
+
+<main>
+    <section>
+        <h2>About the Project</h2>
+        <p>
+            This project uses a pretrained DenseNet121 deep learning model
+            to identify six selected labels from chest X-ray images.
+            It is developed using the NIH ChestX-ray14 dataset.
+        </p>
+    </section>
+
+    <section>
+        <h2>Predicted Labels</h2>
+        <div class="labels">
+            <span>Atelectasis</span>
+            <span>Cardiomegaly</span>
+            <span>Effusion</span>
+            <span>Edema</span>
+            <span>Consolidation</span>
+            <span>No Finding</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>Model Performance</h2>
+        <p>Macro F1 Score: <strong>0.3340</strong></p>
+        <p>Micro F1 Score: <strong>0.4209</strong></p>
+        <p>Exact Match Accuracy: <strong>0.2632</strong></p>
+        <p>Hamming Accuracy: <strong>0.7690</strong></p>
+    </section>
+
+    <section>
+        <h2>Project Resources</h2>
+        <p><a href="https://github.com/sana-haroon/AI-Chest-Xray-Disease-Detection" target="_blank">View GitHub Repository</a></p>
+        <p><a href="https://github.com/sana-haroon/AI-Chest-Xray-Disease-Detection/releases/tag/v1.0" target="_blank">Download Trained Model Weights</a></p>
+        <p><a href="https://www.kaggle.com/datasets/nih-chest-xrays/data" target="_blank">View Dataset</a></p>
+    </section>
+
+    <section class="notice">
+        <strong>Research Disclaimer:</strong>
+        This project is an educational research prototype and is not
+        intended for clinical diagnosis or medical decision-making.
+    </section>
+</main>
+
+<footer>
+    AI Chest X-ray Disease Detection | Deep Learning Semester Project
+</footer>
+
+</body>
+</html>
