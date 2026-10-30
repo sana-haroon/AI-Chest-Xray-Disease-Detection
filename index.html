@@ -1,26 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Chest X-ray Disease Detection</title>
+
     <style>
         * { box-sizing: border-box; }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: #f4f7fb;
             color: #243047;
         }
+
         header {
             background: #142d4e;
             color: white;
             padding: 55px 20px;
             text-align: center;
         }
+
         header h1 { font-size: 36px; margin-bottom: 12px; }
         header p { color: #d5e3f5; font-size: 17px; }
-        main { max-width: 1000px; margin: 35px auto; padding: 0 20px; }
+
+        main {
+            max-width: 1000px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
         section {
             background: white;
             padding: 25px;
@@ -28,35 +39,60 @@
             border-radius: 12px;
             box-shadow: 0 3px 15px #142d4e12;
         }
+
         h2 { color: #174a78; }
+
         .labels {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
+
         .labels span {
             background: #e8f1fa;
             padding: 10px 14px;
             border-radius: 20px;
         }
+
         a {
             color: #1766a6;
             font-weight: bold;
         }
+
         .notice {
             background: #fff5df;
             padding: 15px;
             border-left: 4px solid #e6a52e;
             border-radius: 5px;
         }
+
+        .demo-frame {
+            width: 100%;
+            height: 900px;
+            border: 1px solid #dce4ee;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .demo-link {
+            display: inline-block;
+            margin-top: 12px;
+        }
+
         footer {
             text-align: center;
             padding: 25px;
             background: #142d4e;
             color: white;
         }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 28px; }
+            .demo-frame { height: 1050px; }
+        }
     </style>
 </head>
+
 <body>
 
 <header>
@@ -66,6 +102,7 @@
 </header>
 
 <main>
+
     <section>
         <h2>About the Project</h2>
         <p>
@@ -95,18 +132,62 @@
         <p>Hamming Accuracy: <strong>0.7690</strong></p>
     </section>
 
+    <section id="live-demo">
+        <h2>Live AI Chest X-ray Demo</h2>
+        <p>
+            Upload a chest X-ray image to view the model's
+            predictions, label probabilities, and Grad-CAM visualization.
+        </p>
+
+        <iframe
+            class="demo-frame"
+            src="https://sanachoudhary363-chest-xray-disease-detection.hf.space"
+            title="Live Chest X-ray Disease Detection Demo"
+            loading="lazy"
+            allow="clipboard-read; clipboard-write">
+        </iframe>
+
+        <a
+            class="demo-link"
+            href="https://huggingface.co/spaces/sanachoudhary363/chest-xray-disease-detection"
+            target="_blank"
+            rel="noopener noreferrer">
+            Open Demo Directly on Hugging Face
+        </a>
+    </section>
+
     <section>
         <h2>Project Resources</h2>
-        <p><a href="https://github.com/sana-haroon/AI-Chest-Xray-Disease-Detection" target="_blank">View GitHub Repository</a></p>
-        <p><a href="https://github.com/sana-haroon/AI-Chest-Xray-Disease-Detection/releases/tag/v1.0" target="_blank">Download Trained Model Weights</a></p>
-        <p><a href="https://www.kaggle.com/datasets/nih-chest-xrays/data" target="_blank">View Dataset</a></p>
+
+        <p>
+            <a href="https://github.com/sana-haroon/AI-Chest-Xray-Disease-Detection"
+               target="_blank" rel="noopener noreferrer">
+                View GitHub Repository
+            </a>
+        </p>
+
+        <p>
+            <a href="https://github.com/sana-haroon/AI-Chest-Xray-Disease-Detection/releases/tag/v1.0"
+               target="_blank" rel="noopener noreferrer">
+                Download Trained Model Weights
+            </a>
+        </p>
+
+        <p>
+            <a href="https://www.kaggle.com/datasets/nih-chest-xrays/data"
+               target="_blank" rel="noopener noreferrer">
+                View Dataset
+            </a>
+        </p>
     </section>
 
     <section class="notice">
         <strong>Research Disclaimer:</strong>
         This project is an educational research prototype and is not
         intended for clinical diagnosis or medical decision-making.
+        Model predictions may be incorrect.
     </section>
+
 </main>
 
 <footer>
