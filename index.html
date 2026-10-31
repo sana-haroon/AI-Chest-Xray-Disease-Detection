@@ -7,68 +7,145 @@
     <title>AI Chest X-ray Disease Detection</title>
 
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            background: #f4f7fb;
+            background: #f5f7fb;
             color: #243047;
+            line-height: 1.6;
+        }
+
+        nav {
+            background: #102943;
+            padding: 17px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .brand {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #dce8f5;
+            text-decoration: none;
+            margin-left: 22px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: white;
         }
 
         header {
-            background: #142d4e;
+            background: linear-gradient(135deg, #102943, #1d527b);
             color: white;
-            padding: 55px 20px;
             text-align: center;
+            padding: 75px 20px;
         }
 
-        header h1 { font-size: 36px; margin-bottom: 12px; }
-        header p { color: #d5e3f5; font-size: 17px; }
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        header p {
+            color: #d7e5f3;
+            font-size: 17px;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 8px 18px;
+            border: 1px solid #91b9d8;
+            border-radius: 25px;
+            color: white;
+            font-size: 14px;
+        }
 
         main {
-            max-width: 1000px;
-            margin: 35px auto;
-            padding: 0 20px;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 22px;
         }
 
         section {
             background: white;
-            padding: 25px;
-            margin-bottom: 22px;
-            border-radius: 12px;
-            box-shadow: 0 3px 15px #142d4e12;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(20, 45, 78, 0.06);
         }
 
-        h2 { color: #174a78; }
+        h2 {
+            color: #174a78;
+            font-size: 23px;
+            margin-bottom: 18px;
+        }
+
+        .about-text {
+            color: #59677a;
+            max-width: 850px;
+        }
 
         .labels {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
 
         .labels span {
-            background: #e8f1fa;
-            padding: 10px 14px;
-            border-radius: 20px;
+            background: #eaf2f9;
+            color: #174a78;
+            padding: 9px 16px;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: 600;
         }
 
-        a {
-            color: #1766a6;
-            font-weight: bold;
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
         }
 
-        .notice {
-            background: #fff5df;
-            padding: 15px;
-            border-left: 4px solid #e6a52e;
-            border-radius: 5px;
+        .metric-card {
+            background: #f5f8fc;
+            border: 1px solid #e4ebf3;
+            padding: 22px 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .metric-card h3 {
+            color: #174a78;
+            font-size: 27px;
+            margin-bottom: 7px;
+        }
+
+        .metric-card p {
+            color: #64748b;
+            font-size: 13px;
         }
 
         .demo-frame {
             width: 100%;
-            height: 900px;
+            height: 850px;
             border: 1px solid #dce4ee;
             border-radius: 10px;
             background: white;
@@ -76,44 +153,151 @@
 
         .demo-link {
             display: inline-block;
-            margin-top: 12px;
+            margin-top: 16px;
+            color: #1766a6;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .demo-link:hover {
+            text-decoration: underline;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .resource-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 175px;
+            padding: 22px;
+            background: #f7f9fc;
+            border: 1px solid #e2eaf2;
+            border-radius: 11px;
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-4px);
+            border-color: #4d8dbb;
+            box-shadow: 0 7px 18px rgba(20, 45, 78, 0.08);
+        }
+
+        .resource-card h3 {
+            color: #174a78;
+            font-size: 17px;
+            margin-bottom: 9px;
+        }
+
+        .resource-card p {
+            color: #68778b;
+            font-size: 13px;
+            flex-grow: 1;
+        }
+
+        .resource-card span {
+            color: #1766a6;
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .notice {
+            background: #fff8e9;
+            border-left: 4px solid #e3a52f;
+            color: #66532f;
+            padding: 18px 22px;
+            border-radius: 8px;
+            font-size: 14px;
         }
 
         footer {
+            background: #102943;
+            color: #dce8f5;
             text-align: center;
-            padding: 25px;
-            background: #142d4e;
-            color: white;
+            padding: 24px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 850px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .resource-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 600px) {
-            header h1 { font-size: 28px; }
-            .demo-frame { height: 1050px; }
+            nav {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            header {
+                padding: 55px 18px;
+            }
+
+            header h1 {
+                font-size: 29px;
+            }
+
+            section {
+                padding: 22px;
+            }
+
+            .metrics-grid,
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-frame {
+                height: 1000px;
+            }
         }
     </style>
 </head>
 
 <body>
 
+<nav>
+    <div class="brand">AI Chest X-ray</div>
+    <div>
+        <a href="#about">About</a>
+        <a href="#performance">Performance</a>
+        <a href="#demo">Live Demo</a>
+        <a href="#resources">Resources</a>
+    </div>
+</nav>
+
 <header>
     <h1>AI Chest X-ray Disease Detection</h1>
-    <p>Multi-Label Chest X-ray Classification Using Deep Learning</p>
-    <p>Powered by DenseNet121</p>
+    <p>Multi-Label Classification Using Deep Learning</p>
+    <span class="tech-tag">DenseNet121 | NIH ChestX-ray14</span>
 </header>
 
 <main>
 
-    <section>
+    <section id="about">
         <h2>About the Project</h2>
-        <p>
-            This project uses a pretrained DenseNet121 deep learning model
-            to identify six selected labels from chest X-ray images.
-            It is developed using the NIH ChestX-ray14 dataset.
+        <p class="about-text">
+            A deep learning application for multi-label classification
+            of chest X-ray images using a pretrained DenseNet121 model.
+            Developed with the NIH ChestX-ray14 dataset.
         </p>
     </section>
 
     <section>
-        <h2>Predicted Labels</h2>
+        <h2>Detection Categories</h2>
         <div class="labels">
             <span>Atelectasis</span>
             <span>Cardiomegaly</span>
@@ -124,25 +308,39 @@
         </div>
     </section>
 
-    <section>
+    <section id="performance">
         <h2>Model Performance</h2>
-        <p>Macro F1 Score: <strong>0.3340</strong></p>
-        <p>Micro F1 Score: <strong>0.4209</strong></p>
-        <p>Exact Match Accuracy: <strong>0.2632</strong></p>
-        <p>Hamming Accuracy: <strong>0.7690</strong></p>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h3>33.40%</h3>
+                <p>Macro F1 Score</p>
+            </div>
+
+            <div class="metric-card">
+                <h3>42.09%</h3>
+                <p>Micro F1 Score</p>
+            </div>
+
+            <div class="metric-card">
+                <h3>26.32%</h3>
+                <p>Exact Match Accuracy</p>
+            </div>
+
+            <div class="metric-card">
+                <h3>76.90%</h3>
+                <p>Hamming Accuracy</p>
+            </div>
+        </div>
     </section>
 
-    <section id="live-demo">
-        <h2>Live AI Chest X-ray Demo</h2>
-        <p>
-            Upload a chest X-ray image to view the model's
-            predictions, label probabilities, and Grad-CAM visualization.
-        </p>
+    <section id="demo">
+        <h2>Live Application</h2>
 
         <iframe
             class="demo-frame"
             src="https://sanachoudhary363-chest-xray-disease-detection.hf.space"
-            title="Live Chest X-ray Disease Detection Demo"
+            title="AI Chest X-ray Disease Detection"
             loading="lazy"
             allow="clipboard-read; clipboard-write">
         </iframe>
@@ -152,46 +350,76 @@
             href="https://huggingface.co/spaces/sanachoudhary363/chest-xray-disease-detection"
             target="_blank"
             rel="noopener noreferrer">
-            Open Demo Directly on Hugging Face
+            Open Application in New Tab →
         </a>
     </section>
 
-    <section>
+    <section id="resources">
         <h2>Project Resources</h2>
 
-        <p>
-            <a href="https://github.com/sana-haroon/AI-Chest-Xray-Disease-Detection"
-               target="_blank" rel="noopener noreferrer">
-                View GitHub Repository
-            </a>
-        </p>
+        <div class="resource-grid">
 
-        <p>
-            <a href="https://github.com/sana-haroon/AI-Chest-Xray-Disease-Detection/releases/tag/v1.0"
+            <a class="resource-card"
+               href="https://github.com/sana-haroon/AI-Chest-Xray-Disease-Detection"
                target="_blank" rel="noopener noreferrer">
-                Download Trained Model Weights
+                <h3>GitHub Repository</h3>
+                <p>Source code and project documentation.</p>
+                <span>View Repository →</span>
             </a>
-        </p>
 
-        <p>
-            <a href="https://www.kaggle.com/datasets/nih-chest-xrays/data"
+            <a class="resource-card"
+               href="https://github.com/sana-haroon/AI-Chest-Xray-Disease-Detection/blob/main/NIH_Chest_Xray_Deep_Learning_Project.ipynb"
                target="_blank" rel="noopener noreferrer">
-                View Dataset
+                <h3>Project Notebook</h3>
+                <p>Complete implementation and experiments.</p>
+                <span>View Notebook →</span>
             </a>
-        </p>
+
+            <a class="resource-card"
+               href="https://github.com/sana-haroon/AI-Chest-Xray-Disease-Detection/releases/tag/v1.0"
+               target="_blank" rel="noopener noreferrer">
+                <h3>Trained Model</h3>
+                <p>DenseNet121 model weights.</p>
+                <span>Download Weights →</span>
+            </a>
+
+            <a class="resource-card"
+               href="https://www.kaggle.com/datasets/nih-chest-xrays/data"
+               target="_blank" rel="noopener noreferrer">
+                <h3>Dataset</h3>
+                <p>NIH ChestX-ray14 dataset.</p>
+                <span>View Dataset →</span>
+            </a>
+
+            <a class="resource-card"
+               href="https://huggingface.co/spaces/sanachoudhary363/chest-xray-disease-detection"
+               target="_blank" rel="noopener noreferrer">
+                <h3>Live AI Application</h3>
+                <p>Chest X-ray predictions and Grad-CAM visualization.</p>
+                <span>Try Application →</span>
+            </a>
+
+            <a class="resource-card"
+               href="YOUR_YOUTUBE_VIDEO_LINK"
+               target="_blank" rel="noopener noreferrer">
+                <h3>Project Demonstration</h3>
+                <p>Project video demonstration.</p>
+                <span>Watch Video →</span>
+            </a>
+
+        </div>
     </section>
 
-    <section class="notice">
-        <strong>Research Disclaimer:</strong>
-        This project is an educational research prototype and is not
-        intended for clinical diagnosis or medical decision-making.
-        Model predictions may be incorrect.
-    </section>
+    <div class="notice">
+        <strong>Disclaimer:</strong>
+        This application is an educational research prototype.
+        It is not intended for clinical diagnosis or medical decision-making.
+    </div>
 
 </main>
 
 <footer>
-    AI Chest X-ray Disease Detection | Deep Learning Semester Project
+    AI Chest X-ray Disease Detection | Deep Learning Project
 </footer>
 
 </body>
